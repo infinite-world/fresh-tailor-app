@@ -4,6 +4,9 @@
     padding: 3%;
     border-radius: 3rem;
 }
+.white-colors-class{
+    color: white;
+}
 
 .register-left{
     text-align: center;

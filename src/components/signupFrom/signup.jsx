@@ -11,8 +11,10 @@ const Signup = () => {
         <div class="row">
           <div class="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-            <h3>Welcome</h3>
-            <p>You are 30 seconds away from setting your own Tailor Shop!</p>
+            <h3 className="white-colors-class font-weight-bold">Welcome</h3>
+            <p className="white-colors-class">
+              TailorApp helps you to connect and manage your customers!
+            </p>
             <Link to="/login">
               <input type="submit" name="" value="Login" />
             </Link>

@@ -40,20 +40,7 @@ class NavbarPage extends Component {
                 <MDBNavLink to="#!">Pricing</MDBNavLink>
               </MDBNavItem>
             </MDBNavbarNav>
-            <MDBNavbarNav right>
-              <MDBNavItem>
-                <MDBFormInline waves>
-                  <div className="md-form my-0">
-                    <input
-                      className="form-control mr-sm-2"
-                      type="text"
-                      placeholder="Search"
-                      aria-label="Search"
-                    />
-                  </div>
-                </MDBFormInline>
-              </MDBNavItem>
-            </MDBNavbarNav>
+            {/* search bar removed */}
           </MDBCollapse>
         </MDBNavbar>
       </Router>

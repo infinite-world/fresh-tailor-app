@@ -11,8 +11,8 @@ const Login = () => {
         <div class="row">
           <div class="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-            <h3>Welcome</h3>
-            <p>TailorApp helps you to connect and manage your customers!</p>
+            <h3 className="white-colors-class font-weight-bold">Welcome</h3>
+            <p className="white-colors-class">TailorApp helps you to connect and manage your customers!</p>
             <Link to="/signup">
               <input type="submit" name="" value="signup" />
             </Link>
