@@ -117,11 +117,11 @@ const HeroSection = () => {
           <div class="row align-items-center">
             <div class="col-md-6 order-2 order-md-1 text-center text-md-left">
               <h1 class="text-white font-weight-bold mb-4">
-                Showcase your app with Small Apps
+              Set Your Own Tailor Shop For Free
               </h1>
               <p class="text-white mb-5">
-                Besides its beautiful design. Laapp is an incredibly rich core
-                framework for you to showcase your App.
+              
+              We provide smart solutions to your businesses using the latest tools and technologies
               </p>
               <Link to="/signup">
                 <button
