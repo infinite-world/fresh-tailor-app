@@ -3,6 +3,7 @@ import "./HeroSection.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { MDBBtn } from "mdbreact";
+import { BrowserRouter, Link } from "react-router-dom";
 
 const HeroSection = () => {
   useEffect(() => {
@@ -121,15 +122,19 @@ const HeroSection = () => {
                 Besides its beautiful design. Laapp is an incredibly rich core
                 framework for you to showcase your App.
               </p>
+              <BrowserRouter>
+                <Link to="/signup">
+                  <button
+                    type="button"
+                    class="btn btn-white text-primary font-weight-bold"
+                  >
+                    Sign Up
+                  </button>
+                </Link>
+              </BrowserRouter>
               <button
                 type="button"
-                class="btn btn-light text-primary font-weight-bold"
-              >
-                Sign Up
-              </button>
-              <button
-                type="button"
-                class="btn btn-light text-primary font-weight-bold"
+                class="btn btn-white text-primary font-weight-bold"
               >
                 Log In
               </button>

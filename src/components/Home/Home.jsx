@@ -5,7 +5,7 @@ import Navbar from "./homeNavbar/homenavbar";
 const Home = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <HeroSection />
       
     </div>
