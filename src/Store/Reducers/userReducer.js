@@ -1,4 +1,4 @@
-import ModuleData from "../../Modules&Apis/Modules";
+import { ModuleData } from "../../Modules&Apis/Modules";
 const initialstate = {
     user: null,
     token: null

@@ -1,4 +1,4 @@
-import ModuleData from "../../Modules&Apis/Modules";
+import { ModuleData } from "../../Modules&Apis/Modules";
 const initialstate = {
     message: {}
 }
@@ -10,6 +10,11 @@ const ResponseReducer = (state = initialstate, action) => {
             return {
                 ...state,
                 message: payload
+            }
+        case ModuleData.API_Response_Remove_Successfully:
+            return {
+                ...state,
+                message: {}
             }
         default:
             return state;

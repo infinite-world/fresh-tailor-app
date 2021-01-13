@@ -1,17 +1,18 @@
-.tab-content{
-    position: relative;
+.tab-content {
+  position: relative;
 }
 
-.alert{
-    position: absolute!important;
-    left: 50%;
-    top: 10px;
-    z-index: 999;
-    transform: translateX(-50%);
-    text-align: center;
-    font-weight: 600;
+.alert {
+  position: absolute !important;
+  left: 50%;
+  top: 10px;
+  z-index: 999;
+  transform: translateX(-50%);
+  text-align: center;
+  font-weight: 600;
 }
 
-.btnRegister:focus{
-    outline: none;
+.btnRegister:focus {
+  outline: none;
 }
+

@@ -1,64 +1,48 @@
-import React, { Component } from "react";
-import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
-  MDBFormInline
-} from "mdbreact";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import React from "react";
+import "./homenavbar.css";
+import { MDBIcon } from "mdbreact";
+import { Link, NavLink } from "react-router-dom";
 
-class NavbarPage extends Component {
-  state = {
-    isOpen: false,
-  };
+const Navbar = () => {
+  return (
+    <div>
+      <nav class="navbar navbar-dark navbar-expand-sm" id="back-color-navbar">
+        <Link to="/">
+          <a class="navbar-brand" href="#">
+            <strong id="tailor-logo-text">
+              <MDBIcon icon="cut" />
+              TailorApp
+            </strong>
+          </a>
+        </Link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar-list-2"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-list-2">
+          <ul class="navbar-nav">
+            <li class="nav-item active border border-top-0 border-left-0 border-right-0">
+              <NavLink to="/login">
+                <a
+                  class="nav-link text-white font-italic font-weight-bold shadow-shape"
+                  href="#"
+                >
+                  About Us
+                </a>
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  );
+};
 
-  toggleCollapse = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-  };
-
-  render() {
-    return (
-      <Router>
-        <MDBNavbar position="fixed" color="indigo" dark expand="md">
-          <MDBNavbarBrand>
-            <strong className="white-text">TailorApp</strong>
-          </MDBNavbarBrand>
-          <MDBNavbarToggler onClick={this.toggleCollapse} />
-          <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-            <MDBNavbarNav left>
-              <MDBNavItem active>
-                <MDBNavLink to="/">Home</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink to="/signup">Register</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink to="/login">Login</MDBNavLink>
-              </MDBNavItem>
-            </MDBNavbarNav>
-            <MDBNavbarNav right>
-              <MDBNavItem>
-                <MDBFormInline waves>
-                  <div className="md-form my-0">
-                    <input
-                      className="form-control mr-sm-2"
-                      type="text"
-                      placeholder="Search"
-                      aria-label="Search"
-                    />
-                  </div>
-                </MDBFormInline>
-              </MDBNavItem>
-            </MDBNavbarNav>
-          </MDBCollapse>
-        </MDBNavbar>
-      </Router>
-    );
-  }
-}
-
-export default NavbarPage;
+export default Navbar;

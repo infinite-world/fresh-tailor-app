@@ -1,10 +1,10 @@
-import ModuleData from "../../Modules&Apis/Modules";
+import { ModuleData } from "../../Modules&Apis/Modules";
 const initialstate = {
     isLoading: false
 }
 
 const LoadingReducer = (state = initialstate, action) => {
-    const { type, payload } = action;
+    const { type } = action;
     switch (type) {
         case ModuleData.FetchingOn:
             return {

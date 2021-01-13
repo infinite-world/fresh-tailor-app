@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./signup.css";
-import PhoneInput from 'react-phone-input-2';
 import { RegisterUser } from "./signupFunctions";
 
 const Signup = () => {
@@ -33,8 +32,8 @@ const Signup = () => {
       <div className="row">
         <div className="col-md-3 register-left">
           <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-          <h3>Welcome</h3>
-          <p>You are 30 seconds away from setting your own Tailor Shop!</p>
+          <h3 className="text-white font-weight-bold">Welcome</h3>
+          <p className="text-white">You are 30 seconds away from setting your own tailor shop!</p>
           <Link to="/login">
             <input type="submit" name="" value="Login" />
           </Link>
@@ -42,7 +41,7 @@ const Signup = () => {
         </div>
         <div className="col-md-9 register-right position-relative">
           {/* alert */}
-          <div className={error ? "alert alert-danger w-50 mx-auto d-block animate__animated animate__fadeIn" : "d-none"} role="alert">
+          <div id="alert" className={error ? "alert alert-danger w-50 mx-auto d-block animate__animated animate__fadeIn" : "d-none"} role="alert">
             <i className="fa fa-exclamation-triangle mr-2" aria-hidden="true"></i>
             All fields must be required...!
             </div>
@@ -54,7 +53,7 @@ const Signup = () => {
               role="tabpanel"
               aria-labelledby="home-tab"
             >
-              <h3 className="register-heading">Register as a Tailor</h3>
+              <h3 className="register-heading font-weight-bold">Register as a Tailor</h3>
               <div className="row register-form">
                 <div className="col-md-6">
                   <div className="form-group">
@@ -92,14 +91,11 @@ const Signup = () => {
                       onChange={(e) => setShopName(e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
-                    <PhoneInput
-                      country={'pk'}
-                      onlyCountries={['pk']}
-                      value={phone}
-                      placeholder={'0312-3456789'}
-                      onChange={phone => setPhone(phone)}
-                    />
+                  <div className="form-group d-flex">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">+92</span>
+                    </div>
+                    <input onChange={(e) => setPhone(e.target.value)} type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
                   </div>
 
                   <div className="form-group">
