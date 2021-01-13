@@ -28,7 +28,7 @@ export const RegisterUser = async (data) => {
             // if error
             if (error) {
                 Store.dispatch({
-                    type: ModulesData.Response_Get,
+                    type: ModulesData.API_Response_Get_Successfully,
                     payload: { type: 'error', msg: error }
                 });
             }
@@ -37,7 +37,7 @@ export const RegisterUser = async (data) => {
 
     }).catch(err => {
         Store.dispatch({
-            type: ModulesData.Response_Get,
+            type: ModulesData.API_Response_Get_Successfully,
             payload: { type: 'error', msg: "Something went wrong, try again" }
         });
     })

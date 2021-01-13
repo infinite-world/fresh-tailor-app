@@ -6,7 +6,6 @@ import App from "./App";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'mdbreact/dist/css/mdb.css';
 import 'react-phone-input-2/lib/style.css';
-import 'react-toastify/dist/ReactToastify.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 ReactDom.render(
