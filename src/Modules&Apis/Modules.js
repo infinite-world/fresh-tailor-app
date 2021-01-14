@@ -1,7 +1,7 @@
 import { store } from "../Store/Store/store";
 
 const ModuleData = {
-    API: "https://tailor-web-api.herokuapp.com/api",
+    API: "https://tailor-web-app-apis.herokuapp.com/api",
     FetchingOn: "Fetching_data_On",
     FetchingOff: "Fetching_data_Off",
     API_Response_Get_Successfully: "Getting_Response",

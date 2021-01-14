@@ -17,6 +17,7 @@ export const RegisterUser = async (data) => {
             }
         })
         .catch((err) => {
+            FetchingDataOffFunc();
             SendAPIResponse(err);
         });
 };

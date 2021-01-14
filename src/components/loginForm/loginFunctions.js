@@ -13,6 +13,7 @@ export const LoginUser = async (data) => {
             }
         })
         .catch((err) => {
+            FetchingDataOffFunc();
             SendAPIResponse(err);
         });
 };
