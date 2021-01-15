@@ -36,9 +36,6 @@ const Login = ({ loggedinUser }) => {
 
   return <React.Fragment>
     {
-      console.log("dddf", loggedinUser)
-    }
-    {
       loggedinUser ?
         <Redirect to="/dashboard" />
         :

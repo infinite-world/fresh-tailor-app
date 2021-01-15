@@ -7,7 +7,9 @@ const ModuleData = {
     API_Response_Get_Successfully: "Getting_Response",
     API_Response_Remove_Successfully: "Removing_Response",
     Save_User_Successfully: "Getting_User_Successfully",
-    User_Remove_Successfully: "Remove_User_Successfully"
+    User_Remove_Successfully: "Remove_User_Successfully",
+    Verify_code_save: "code_save",
+    Verify_code_remove: "code_remove"
 }
 
 const FetchingDataOnFunc = () => {
@@ -22,7 +24,14 @@ const FetchingDataOffFunc = () => {
     });
 }
 
-const SendAPIResponse = (error = null, token = null, user = null) => {
+const SendAPIResponse = (error = null, token = null, user = null, msg = null) => {
+    if (msg) {
+        store.dispatch({
+            type: ModuleData.API_Response_Get_Successfully,
+            payload: { type: "success", msg: msg },
+        });
+    }
+
     if (token) {
         store.dispatch({
             type: ModuleData.API_Response_Get_Successfully,
@@ -46,4 +55,16 @@ const SendAPIResponse = (error = null, token = null, user = null) => {
     }, 5000);
 }
 
-export { ModuleData, FetchingDataOnFunc, FetchingDataOffFunc, SendAPIResponse };
+const verifyCodeSave = () => {
+    store.dispatch({
+        type: ModuleData.Verify_code_save,
+    });
+}
+
+const verifyCoderemove = () => {
+    store.dispatch({
+        type: ModuleData.Verify_code_remove,
+    });
+}
+
+export { ModuleData, FetchingDataOnFunc, FetchingDataOffFunc, SendAPIResponse, verifyCodeSave, verifyCoderemove };

@@ -4,11 +4,11 @@ import "./signup.css";
 import { RegisterUser } from "./signupFunctions";
 import { connect } from "react-redux";
 
-const Signup = ({ loggedinUser }) => {
+const Signup = ({ loggedinUser, verifyCode }) => {
   const [userName, setUserName] = useState(null);
   const [shopName, setShopName] = useState(null);
   const [email, setEmail] = useState(null);
-  const [phone, setPhone] = useState(null);
+  // const [phone, setPhone] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [gender, setGender] = useState('male');
@@ -16,19 +16,22 @@ const Signup = ({ loggedinUser }) => {
 
   const sendRegisterUserData = (event) => {
     event.preventDefault();
-    if (!userName || !shopName || !email || !phone || !password || !confirmPassword || !gender) {
+    if (!userName || !shopName || !email || !password || !confirmPassword || !gender) {
       setError(true);
       setTimeout(() => {
         setError(false)
       }, 5000);
     }
     else {
-      let data = { userName, shopName, email, password, phone, gender }
+      let data = { userName, shopName, email, password, gender, confirmPassword }
       RegisterUser(data);
     }
   }
 
   return <React.Fragment>
+    {
+      verifyCode ? <Redirect to="/login" /> : null
+    }
     {
       loggedinUser ?
         <Redirect to="/dashboard" />
@@ -82,8 +85,8 @@ const Signup = ({ loggedinUser }) => {
                         <input
                           type="password"
                           className="form-control"
-                          placeholder=" Password "
-                          onChange={(e) => setPassword(e.target.value)}
+                          placeholder=" Confirm Password"
+                          onChange={(e) => setConfirmPassword(e.target.value)}
                         />
                       </div>
                     </div>
@@ -96,22 +99,22 @@ const Signup = ({ loggedinUser }) => {
                           onChange={(e) => setShopName(e.target.value)}
                         />
                       </div>
-                      <div className="form-group d-flex">
+                      {/* <div className="form-group d-flex">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="inputGroup-sizing-sm">+92</span>
                         </div>
                         <input onChange={(e) => setPhone(e.target.value)} type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                      </div>
+                      </div> */}
 
                       <div className="form-group">
                         <input
                           type="password"
                           className="form-control"
-                          placeholder=" Confirm Password"
-                          onChange={(e) => setConfirmPassword(e.target.value)}
+                          placeholder=" Password "
+                          onChange={(e) => setPassword(e.target.value)}
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-group pt-2">
                         <div className="radio">
                           <div>
                             <label className="mr-2"><input onChange={(e) => setGender('male')} className="mr-1 text-muted" type="radio" name="optradio" defaultChecked />Male</label>
@@ -133,7 +136,8 @@ const Signup = ({ loggedinUser }) => {
 
 function mapStateToProps(state) {
   return {
-    loggedinUser: state.UserReducer.user
+    loggedinUser: state.UserReducer.user,
+    verifyCode: state.ResponseReducer.verifyCodeSave
   }
 }
 

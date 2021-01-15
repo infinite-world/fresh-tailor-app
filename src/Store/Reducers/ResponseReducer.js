@@ -1,6 +1,7 @@
 import { ModuleData } from "../../Modules&Apis/Modules";
 const initialstate = {
-    message: {}
+    message: {},
+    verifyCodeSave: false
 }
 
 const ResponseReducer = (state = initialstate, action) => {
@@ -15,6 +16,16 @@ const ResponseReducer = (state = initialstate, action) => {
             return {
                 ...state,
                 message: {}
+            }
+        case ModuleData.Verify_code_save:
+            return {
+                ...state,
+                verifyCodeSave: true
+            }
+        case ModuleData.Verify_code_remove:
+            return {
+                ...state,
+                verifyCodeSave: false
             }
         default:
             return state;

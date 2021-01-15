@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ModuleData, FetchingDataOnFunc, FetchingDataOffFunc, SendAPIResponse } from "../../Modules&Apis/Modules";
+import { ModuleData, FetchingDataOnFunc, FetchingDataOffFunc, SendAPIResponse, verifyCoderemove } from "../../Modules&Apis/Modules";
 
 export const LoginUser = async (data) => {
     FetchingDataOnFunc();
@@ -9,7 +9,11 @@ export const LoginUser = async (data) => {
             if (result.data) {
                 FetchingDataOffFunc();
                 const { error, token, user } = result.data;
-                SendAPIResponse(error, token, user);
+                if (error) SendAPIResponse(error);
+                if (token) {
+                    SendAPIResponse(null, token, user, null);
+                    verifyCoderemove();
+                }
             }
         })
         .catch((err) => {
